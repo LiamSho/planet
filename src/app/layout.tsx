@@ -6,6 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 import cfg from "@/config";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
   title: cfg.title,
   description: cfg.description,
