@@ -34,7 +34,7 @@ const Hero: FC = () => {
     }, 0) * 0.05
 
   return (
-    <div className="mt-20 min-w-0 max-w-[1800px] overflow-hidden lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]">
+    <div className="mt-20 min-w-0 max-w-[1800px] overflow-hidden min-h-screen lg:mt-[-4.5rem] lg:h-dvh lg:min-h-[800px]">
       <HeroLayout leftClassName="mt-12 h-[15rem] lg:h-1/2">
         <>
           <div className="relative text-center leading-[4] lg:text-left [&_*]:inline-block">
