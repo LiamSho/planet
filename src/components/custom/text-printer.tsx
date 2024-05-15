@@ -1,17 +1,18 @@
-"use client";
+'use client'
 
-import React, { createElement } from "react";
-import { motion } from "framer-motion";
-import type { FC } from "react";
-import { TextUpTransition } from "./transitions/text-up-transition";
+import React, { createElement } from 'react'
+import { motion } from 'framer-motion'
+import type { FC } from 'react'
+
+import { TextUpTransition } from './transitions/text-up-transition'
 
 const TextPrinter: FC<{
   template: {
-    type: string;
-    text?: string;
-    class?: string;
-  }[];
-  delay?: number;
+    type: string
+    text?: string
+    class?: string
+  }[]
+  delay?: number
 }> = ({ template, delay }) => {
   return (
     <motion.div
@@ -20,16 +21,16 @@ const TextPrinter: FC<{
       transition={{
         delay: delay,
         duration: 0.35,
-        type: "spring",
+        type: 'spring',
         stiffness: 120,
         damping: 20,
       }}
     >
       {template.map((t, i) => {
-        const { type } = t;
+        const { type } = t
         const prevAllTextLength = template.slice(0, i).reduce((acc, cur) => {
-          return acc + (cur.text?.length || 0);
-        }, 0);
+          return acc + (cur.text?.length || 0)
+        }, 0)
         return createElement(
           type,
           { key: i, className: t.class },
@@ -40,11 +41,11 @@ const TextPrinter: FC<{
             >
               {t.text}
             </TextUpTransition>
-          )
-        );
+          ),
+        )
       })}
     </motion.div>
-  );
-};
+  )
+}
 
-export default TextPrinter;
+export default TextPrinter

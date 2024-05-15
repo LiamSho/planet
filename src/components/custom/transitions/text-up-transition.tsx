@@ -1,14 +1,14 @@
-import { motion } from "framer-motion";
-import { FC } from "react";
+import { FC } from 'react'
+import { motion } from 'framer-motion'
 
 export const TextUpTransition: FC<
   {
-    text?: string;
-    children?: string;
-    appear?: boolean;
-    eachDelay?: number;
-    initialDelay?: number;
-  } & JSX.IntrinsicElements["div"]
+    text?: string
+    children?: string
+    appear?: boolean
+    eachDelay?: number
+    initialDelay?: number
+  } & JSX.IntrinsicElements['div']
 > = (props) => {
   const {
     appear = true,
@@ -17,11 +17,11 @@ export const TextUpTransition: FC<
     children,
     text,
     ...rest
-  } = props;
+  } = props
 
   if (!appear) {
     // @ts-ignore
-    return <div {...rest}>{text ?? children}</div>;
+    return <div {...rest}>{text ?? children}</div>
   }
 
   return (
@@ -30,12 +30,12 @@ export const TextUpTransition: FC<
         <motion.span
           key={i}
           className="inline-block whitespace-pre"
-          initial={{ transform: "translateY(10px)", opacity: 0.001 }}
+          initial={{ transform: 'translateY(10px)', opacity: 0.001 }}
           animate={{
-            transform: "translateY(0px)",
+            transform: 'translateY(0px)',
             opacity: 1,
             transition: {
-              type: "spring",
+              type: 'spring',
               stiffness: 300,
               damping: 20,
               duration: 0.1,
@@ -47,5 +47,5 @@ export const TextUpTransition: FC<
         </motion.span>
       ))}
     </div>
-  );
-};
+  )
+}
