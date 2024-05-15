@@ -55,7 +55,7 @@ const config = {
         },
       ],
     },
-    avatar: 'https://dummyimage.com/512',
+    avatar: 'https://planet.alisaqaq.moe/avatar.webp',
   },
 }
 
