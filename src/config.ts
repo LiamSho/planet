@@ -1,6 +1,8 @@
 const config = {
-  title: '迷いの森',
-  description: 'Alisa',
+  meta: {
+    title: '迷いの森',
+    description: 'Alisa',
+  },
   home: {
     intro: {
       heading: [
@@ -53,6 +55,7 @@ const config = {
         },
       ],
     },
+    avatar: 'https://dummyimage.com/512',
   },
 }
 

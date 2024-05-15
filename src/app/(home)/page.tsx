@@ -6,8 +6,7 @@ import Image from 'next/image'
 
 import TextPrinter from '@/components/custom/text-printer'
 import { Button } from '@/components/ui/button'
-import config from '@/config'
-import { cn } from '@/lib/utils'
+import cfg from '@/config'
 
 import HeroLayout from './components/HeroLayout'
 
@@ -20,7 +19,7 @@ export default function Home() {
 }
 
 const Hero: FC = () => {
-  const template = config.home.intro.heading
+  const template = cfg.home.intro.heading
 
   const titleAnimateD =
     template.reduce((acc, cur) => {
@@ -37,13 +36,13 @@ const Hero: FC = () => {
 
           <div className="my-3 text-center lg:text-left">
             <TextPrinter
-              template={config.home.intro.description}
+              template={cfg.home.intro.description}
               delay={titleAnimateD}
             />
           </div>
 
           <ul className="mx-[60px] mt-8 flex flex-wrap items-center justify-center gap-4 lg:mx-auto lg:mt-28 lg:justify-start">
-            {config.home.intro.social.map((item, index) => {
+            {cfg.home.intro.social.map((item, index) => {
               // @ts-ignore
               const Icon = Icons[item.icon]
               return (
@@ -66,14 +65,11 @@ const Hero: FC = () => {
 
         <div className="mt-24 size-[200px] lg:mt-0 lg:size-[300px]">
           <Image
-            src="https://dummyimage.com/512"
+            src={cfg.home.avatar}
             alt="avatar"
             width={300}
             height={300}
-            className={cn(
-              'aspect-square rounded-full border border-slate-200 dark:border-neutral-800',
-              'w-full',
-            )}
+            className="aspect-square w-full rounded-full border border-slate-200 dark:border-neutral-800"
           />
         </div>
       </HeroLayout>
