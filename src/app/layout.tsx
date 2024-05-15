@@ -1,10 +1,13 @@
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 
-import "@/styles/index.css"
+import '@/styles/index.css'
 
-import cfg from '@/config'
+import { Terminal } from 'lucide-react'
+
 import { Providers } from '@/components/providers/providers'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import cfg from '@/config'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +28,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <div className="relative h-full max-h-screen overflow-auto p-4 font-sans">
+            <Alert>
+              <Terminal className="h-4 w-4" />
+              <AlertTitle>ATTENTION</AlertTitle>
+              <AlertDescription>🚧 本站仍在开发中</AlertDescription>
+            </Alert>
             {children}
           </div>
         </Providers>
