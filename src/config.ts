@@ -43,7 +43,7 @@ const config = {
         },
         {
           type: 'bilibili',
-          url: 'https://space.bilibili.com/100000000',
+          url: 'https://space.bilibili.com/5627849',
           icon: 'FaBilibili',
           theme: '#00A1D6',
         },
