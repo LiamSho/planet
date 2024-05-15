@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
 
-const HeroLayout = ({
+export const HeroLayout = ({
   children,
   className,
   leftClassName,
@@ -36,5 +36,3 @@ const HeroLayout = ({
     </div>
   )
 }
-
-export default HeroLayout

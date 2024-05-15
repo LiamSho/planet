@@ -6,20 +6,20 @@ import type { FC } from 'react'
 
 import { TextUpTransition } from './transitions/text-up-transition'
 
-const TextPrinter: FC<{
+export const TextPrinter: FC<{
   template: {
     type: string
     text?: string
     class?: string
   }[]
-  delay?: number
-}> = ({ template, delay }) => {
+  initialDelay?: number
+}> = ({ template, initialDelay }) => {
   return (
     <motion.div
       initial={{ opacity: 0.0001, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
-        delay: delay,
+        delay: initialDelay,
         duration: 0.35,
         type: 'spring',
         stiffness: 120,
@@ -36,7 +36,7 @@ const TextPrinter: FC<{
           { key: i, className: t.class },
           t.text && (
             <TextUpTransition
-              initialDelay={prevAllTextLength * 0.05 + (delay || 0)}
+              initialDelay={prevAllTextLength * 0.05 + (initialDelay || 0)}
               eachDelay={0.05}
             >
               {t.text}
@@ -47,5 +47,3 @@ const TextPrinter: FC<{
     </motion.div>
   )
 }
-
-export default TextPrinter

@@ -4,11 +4,12 @@ import { FC } from 'react'
 import * as Icons from 'react-icons/fa6'
 import Image from 'next/image'
 
-import TextPrinter from '@/components/custom/text-printer'
+import { TextPrinter } from '@/components/custom/text-printer'
+import { PopupTransition } from '@/components/custom/transitions/popup-transition'
 import { Button } from '@/components/ui/button'
 import cfg from '@/config'
 
-import HeroLayout from './components/HeroLayout'
+import { HeroLayout } from './components/HeroLayout'
 
 export default function Home() {
   return (
@@ -20,9 +21,15 @@ export default function Home() {
 
 const Hero: FC = () => {
   const template = cfg.home.intro.heading
+  const desc = cfg.home.intro.description
 
   const titleAnimateD =
     template.reduce((acc, cur) => {
+      return acc + (cur.text?.length || 0)
+    }, 0) * 0.05
+
+  const descriptionAnimateD =
+    desc.reduce((acc, cur) => {
       return acc + (cur.text?.length || 0)
     }, 0) * 0.05
 
@@ -35,10 +42,7 @@ const Hero: FC = () => {
           </div>
 
           <div className="my-3 text-center lg:text-left">
-            <TextPrinter
-              template={cfg.home.intro.description}
-              delay={titleAnimateD}
-            />
+            <TextPrinter template={desc} initialDelay={titleAnimateD} />
           </div>
 
           <ul className="mx-[60px] mt-8 flex flex-wrap items-center justify-center gap-4 lg:mx-auto lg:mt-28 lg:justify-start">
@@ -46,7 +50,12 @@ const Hero: FC = () => {
               // @ts-ignore
               const Icon = Icons[item.icon]
               return (
-                <div key={index}>
+                <PopupTransition
+                  key={index}
+                  initialDelay={
+                    titleAnimateD + descriptionAnimateD + index * 0.2
+                  }
+                >
                   <Button
                     variant="outline"
                     size="icon"
@@ -57,7 +66,7 @@ const Hero: FC = () => {
                       <Icon className="h-5 w-5" color="white" />
                     </a>
                   </Button>
-                </div>
+                </PopupTransition>
               )
             })}
           </ul>
