@@ -8,7 +8,7 @@ const HeroLayout = ({
   leftClassName,
   rightClassName,
 }: {
-  children: [ReactNode, ReactNode] | [ReactNode, ReactNode, ReactNode]
+  children: [ReactNode, ReactNode]
   className?: string
   leftClassName?: string
   rightClassName?: string
@@ -16,7 +16,7 @@ const HeroLayout = ({
   return (
     <div
       className={cn(
-        'relative mx-auto block size-full min-w-0 max-w-[1800px] flex-col flex-wrap items-center lg:flex lg:flex-row',
+        'relative mx-auto flex size-full min-w-0 max-w-[1800px] flex-col-reverse flex-wrap items-center lg:flex-row',
         className,
       )}
     >
@@ -25,7 +25,7 @@ const HeroLayout = ({
           <div
             key={i}
             className={cn(
-              'center flex w-full flex-col lg:h-auto lg:w-1/2',
+              'flex w-full flex-col items-center justify-center lg:h-auto lg:w-1/2',
               i === 0 ? leftClassName : rightClassName,
             )}
           >
@@ -33,8 +33,6 @@ const HeroLayout = ({
           </div>
         )
       })}
-
-      {children[2]}
     </div>
   )
 }

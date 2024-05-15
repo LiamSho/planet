@@ -21,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="relative h-full max-h-screen overflow-auto p-4 font-sans">
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
