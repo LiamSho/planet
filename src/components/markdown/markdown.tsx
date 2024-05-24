@@ -1,8 +1,9 @@
-import { FC } from 'react'
-import MJSX from 'markdown-to-jsx'
+'use client'
 
-import { MdxImage } from './elements/image'
-import { MdxParagraph } from './elements/paragraph'
+import { FC } from 'react'
+import MJSX, { MarkdownToJSX } from 'markdown-to-jsx'
+
+import { MdxImage, MdxParagraph } from './elements'
 
 export const Markdown: FC<{ mdxText: string }> = ({ mdxText }) => {
   const mdxComponents = {
@@ -10,9 +11,13 @@ export const Markdown: FC<{ mdxText: string }> = ({ mdxText }) => {
     img: MdxImage,
   }
 
+  const options: MarkdownToJSX.Options = {
+    overrides: mdxComponents,
+  }
+
   return (
     <article>
-      <MJSX>{mdxText}</MJSX>
+      <MJSX options={options}>{mdxText}</MJSX>
     </article>
   )
 }

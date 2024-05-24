@@ -8,7 +8,7 @@ export const MdxImage: FC<
 
   return (
     <>
-      <Image src={props.src as string} alt={alt} />
+      <Image src={props.src as string} alt={alt} width={500} height={500} />
     </>
   )
 }
