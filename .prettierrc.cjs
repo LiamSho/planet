@@ -1,0 +1,31 @@
+/** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
+module.exports = {
+  semi: false,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'all',
+  arrowParens: 'always',
+  endOfLine: 'lf',
+  plugins: [
+    'prettier-package-json',
+    '@ianvs/prettier-plugin-sort-imports',
+    'prettier-plugin-tailwindcss',
+  ],
+  importOrder: [
+    'react',
+    '<THIRD_PARTY_MODULES>',
+    '<TYPES>',
+    '<TYPES>^[.]',
+    '',
+    '^@(.*)/(.*)$',
+    '',
+    '^~/(.*)$',
+    '',
+    '^@/(.*)$',
+    '',
+    '^[./]',
+    '',
+    '^(?!.*[.]css$)[./].*$',
+    '.css$',
+  ],
+}

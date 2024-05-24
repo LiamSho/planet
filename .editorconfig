@@ -1,0 +1,22 @@
+root = true
+
+[*]
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# XML based
+[*.{xml,html,xhtml,svg}]
+indent_size = 2
+
+# JS/TS
+[*.{js,ts,cjs,mjs,jsx,tsx}]
+indent_size = 2
+
+# Styles
+[*.{css,scss,sass,less}]
+indent_size = 2
+
+# Configuration
+[*.{json,yaml,yml}]
+indent_size = 2

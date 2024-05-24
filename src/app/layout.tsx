@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 
 import '@/styles/index.css'
 
-import { DevAlert } from '@/components/custom/dev-alert'
+import { DevAlert } from '@/components/dev/dev-alert'
 import { Providers } from '@/components/providers/providers'
 import cfg from '@/config'
 
@@ -22,10 +22,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh">
+    <html lang="zh" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <div className="relative h-full max-h-screen overflow-auto p-4 font-sans">
+          <div className="relative h-full max-h-screen overflow-auto font-sans">
             <DevAlert />
             {children}
           </div>

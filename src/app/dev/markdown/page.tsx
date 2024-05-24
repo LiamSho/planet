@@ -1,4 +1,4 @@
-import { Markdown } from '@/components/custom/markdown/markdown'
+import { Markdown } from '@/components/markdown/markdown'
 
 export default function DevMarkdown() {
   const mdxText = `
@@ -39,7 +39,7 @@ console.log('Hello, world!');
 
 [Link Text](https://example.com)
 
-![Alt Text](https://example.com/image.jpg)
+![Alt Text](https://planet.alisaqaq.moe/avatar.webp)
 
 ---
 

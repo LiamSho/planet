@@ -36,22 +36,28 @@ const config = {
       ],
       social: [
         {
-          type: 'github',
+          hover: '@LiamSho',
           url: 'https://github.com/LiamSho',
           icon: 'FaGithub',
           theme: '#181818',
         },
         {
-          type: 'bilibili',
+          hover: '@Alisa_Akiron',
           url: 'https://space.bilibili.com/5627849',
           icon: 'FaBilibili',
           theme: '#00A1D6',
         },
         {
-          type: 'email',
+          hover: 'alisa@alisaqaq.moe',
           url: 'mailto:alisa@alisaqaq.moe',
           icon: 'FaEnvelope',
           theme: '#D44638',
+        },
+        {
+          hover: 'Alisa Lab Codebin (Self-Hosted GitLab)',
+          url: 'https://git.alisaqaq.moe',
+          icon: 'FaGitlab',
+          theme: '#FC6D26',
         },
       ],
     },

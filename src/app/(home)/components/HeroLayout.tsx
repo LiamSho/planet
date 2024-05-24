@@ -16,7 +16,7 @@ export const HeroLayout = ({
   return (
     <div
       className={cn(
-        'relative mx-auto flex size-full min-w-0 max-w-[1800px] flex-col-reverse flex-wrap items-center lg:flex-row',
+        'hero-content relative mx-auto size-full min-w-0 flex-col-reverse lg:flex-row',
         className,
       )}
     >
