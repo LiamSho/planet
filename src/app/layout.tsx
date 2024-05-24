@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 
 import '@/styles/index.css'
 
+import { DevAlert } from '@/components/custom/dev-alert'
 import { Providers } from '@/components/providers/providers'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import cfg from '@/config'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -26,10 +26,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <div className="relative h-full max-h-screen overflow-auto p-4 font-sans">
-            <Alert>
-              <AlertTitle>🚧 ATTENTION</AlertTitle>
-              <AlertDescription>本站仍在开发中</AlertDescription>
-            </Alert>
+            <DevAlert />
             {children}
           </div>
         </Providers>
