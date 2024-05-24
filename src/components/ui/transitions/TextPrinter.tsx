@@ -4,7 +4,7 @@ import React, { createElement } from 'react'
 import { motion } from 'framer-motion'
 import type { FC } from 'react'
 
-import { TextUpTransition } from './text-up-transition'
+import { TextUpTransition } from './TextUpTransition'
 
 export const TextPrinter: FC<{
   template: {

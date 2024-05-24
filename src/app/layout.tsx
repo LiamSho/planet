@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 
 import '@/styles/index.css'
 
-import { DevAlert } from '@/components/dev/dev-alert'
-import { Providers } from '@/components/providers/providers'
+import { DevAlert } from '@/components/dev'
+import { Providers } from '@/components/providers'
 import cfg from '@/config'
 
 const inter = Inter({ subsets: ['latin'] })

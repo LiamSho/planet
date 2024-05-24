@@ -3,9 +3,8 @@
 import { FC } from 'react'
 import Image from 'next/image'
 
-import { PopupTransition } from '@/components/transitions/popup-transition'
-import { TextPrinter } from '@/components/transitions/text-printer'
-import { SocialLink } from '@/components/ui/social-link'
+import { SocialLink } from '@/components/ui/button'
+import { PopupTransition, TextPrinter } from '@/components/ui/transitions'
 import cfg from '@/config'
 
 import { HeroLayout } from './components/HeroLayout'
