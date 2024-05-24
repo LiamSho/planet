@@ -3,7 +3,7 @@ import * as Fa6Icons from 'react-icons/fa6'
 
 export const SocialLink: FC<{
   config: {
-    hover: string
+    hover?: string
     icon: string
     url: string
     theme: string
@@ -11,16 +11,24 @@ export const SocialLink: FC<{
 }> = ({ config }) => {
   // @ts-ignore
   const Icon = Fa6Icons[config.icon]
+
+  const hasTooltip = config.hover !== undefined && config.hover !== ''
+
   return (
     <>
-      <button
-        className="flex h-10 w-10 items-center justify-center rounded-full border-0"
-        style={{ backgroundColor: config.theme }}
+      <div
+        className={hasTooltip ? 'tooltip tooltip-top' : ''}
+        data-tip={config.hover}
       >
-        <a href={config.url} target="_blank">
-          <Icon className="h-6 w-6" color="white" />
-        </a>
-      </button>
+        <button
+          className="flex h-10 w-10 items-center justify-center rounded-full border-0"
+          style={{ backgroundColor: config.theme }}
+        >
+          <a href={config.url} target="_blank">
+            <Icon className="h-6 w-6" color="white" />
+          </a>
+        </button>
+      </div>
     </>
   )
 }
