@@ -5,13 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:pages": "pnpm dlx @cloudflare/next-on-pages@1",
     "start": "next start",
     "prettier": "prettier",
     "lint": "pnpm run lint:prettier && pnpm run lint:next",
     "lint:fix": "prettier --write './**/*.{js,jsx,ts,tsx,css,html,json}' && next lint --fix",
     "lint:prettier": "prettier --check './**/*.{js,jsx,ts,tsx,css,html,json}'",
-    "lint:next": "next lint",
-    "pages:build": "pnpm dlx @cloudflare/next-on-pages"
+    "lint:next": "next lint"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",
