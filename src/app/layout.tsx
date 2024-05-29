@@ -11,10 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const runtime = 'edge'
 
-export const metadata: Metadata = {
-  title: cfg.meta.title,
-  description: cfg.meta.description,
-}
+export const metadata: Metadata = cfg.meta
 
 export default function RootLayout({
   children,

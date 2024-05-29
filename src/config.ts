@@ -1,4 +1,6 @@
-const config = {
+import { PlanetConfig } from './types'
+
+const config: PlanetConfig = {
   meta: {
     title: '迷いの森',
     description: 'Alisa',

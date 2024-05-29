@@ -4,14 +4,12 @@ import React, { createElement } from 'react'
 import { motion } from 'framer-motion'
 import type { FC } from 'react'
 
+import { ElementTemplate } from '@/types'
+
 import { TextUpTransition } from './TextUpTransition'
 
 export const TextPrinter: FC<{
-  template: {
-    type: string
-    text?: string
-    class?: string
-  }[]
+  template: ElementTemplate[]
   initialDelay?: number
 }> = ({ template, initialDelay }) => {
   return (

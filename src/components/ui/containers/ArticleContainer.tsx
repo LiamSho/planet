@@ -1,10 +1,9 @@
 import { FC } from 'react'
 
 import { cn } from '@/lib/utils'
+import { HTMLElementProps } from '@/types'
 
-import { DivProps } from './types'
-
-export const ArticleContainer: FC<DivProps> = ({
+export const ArticleContainer: FC<HTMLElementProps<'div'>> = ({
   children,
   className,
   ...props

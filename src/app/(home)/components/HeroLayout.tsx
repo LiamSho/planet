@@ -1,18 +1,13 @@
-import { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
 
-export const HeroLayout = ({
-  children,
-  className,
-  leftClassName,
-  rightClassName,
-}: {
+export const HeroLayout: FC<{
   children: [ReactNode, ReactNode]
   className?: string
   leftClassName?: string
   rightClassName?: string
-}) => {
+}> = ({ children, className, leftClassName, rightClassName }) => {
   return (
     <div
       className={cn(

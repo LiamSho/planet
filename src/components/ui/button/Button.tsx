@@ -1,12 +1,10 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react'
+import { FC } from 'react'
 
 import { cn } from '@/lib/utils'
+import { HTMLElementProps } from '@/types'
 
 export const Button: FC<
-  DetailedHTMLProps<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > & {
+  HTMLElementProps<'button'> & {
     variant?: 'primary' | 'ghost' | 'outline' | 'default'
     size?: 'icon' | 'sm' | 'md' | 'lg'
   }

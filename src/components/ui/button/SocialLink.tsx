@@ -1,15 +1,9 @@
 import { FC } from 'react'
 import * as Fa6Icons from 'react-icons/fa6'
+import type { SocialMedia } from '@/types'
 
 export const SocialLink: FC<{
-  config: {
-    hover?: string
-    icon: string
-    url: string
-    theme: string
-    buttonLabel?: string
-    linkLabel?: string
-  }
+  config: SocialMedia
 }> = ({ config }) => {
   // @ts-ignore
   const Icon = Fa6Icons[config.icon]

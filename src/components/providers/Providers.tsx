@@ -1,8 +1,8 @@
 import { ThemeProvider } from 'next-themes'
 
-export const Providers = ({
-  children,
-}: Readonly<{ children: React.ReactNode }>) => {
+import { FCC } from '@/types'
+
+export const Providers: FCC = ({ children }) => {
   return (
     <>
       <ThemeProvider

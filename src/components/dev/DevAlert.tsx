@@ -1,8 +1,9 @@
 'use client'
 
+import { FC } from 'react'
 import { usePathname } from 'next/navigation'
 
-export const DevAlert = () => {
+export const DevAlert: FC = () => {
   const pathname = usePathname()
   return (
     <>
