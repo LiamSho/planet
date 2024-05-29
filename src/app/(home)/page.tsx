@@ -42,14 +42,15 @@ const Hero: FC = () => {
           <ul className="mx-[60px] mt-8 flex flex-wrap items-center justify-center gap-4 lg:mx-auto lg:mt-28 lg:justify-start">
             {cfg.home.intro.social.map((item, index) => {
               return (
-                <PopupTransition
-                  key={index}
-                  initialDelay={
-                    titleAnimateD + descriptionAnimateD + index * 0.2
-                  }
-                >
-                  <SocialLink config={item} />
-                </PopupTransition>
+                <li key={index}>
+                  <PopupTransition
+                    initialDelay={
+                      titleAnimateD + descriptionAnimateD + index * 0.2
+                    }
+                  >
+                    <SocialLink config={item} />
+                  </PopupTransition>
+                </li>
               )
             })}
           </ul>

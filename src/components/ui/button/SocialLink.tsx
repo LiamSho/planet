@@ -7,6 +7,8 @@ export const SocialLink: FC<{
     icon: string
     url: string
     theme: string
+    buttonLabel?: string
+    linkLabel?: string
   }
 }> = ({ config }) => {
   // @ts-ignore
@@ -23,8 +25,18 @@ export const SocialLink: FC<{
         <button
           className="flex h-10 w-10 items-center justify-center rounded-full border-0"
           style={{ backgroundColor: config.theme }}
+          aria-label={
+            config.buttonLabel || `Social link button with ${config.icon} icon`
+          }
         >
-          <a href={config.url} target="_blank">
+          <a
+            href={config.url}
+            target="_blank"
+            aria-label={
+              config.linkLabel ||
+              `A link point to an external site ${config.url}`
+            }
+          >
             <Icon className="h-6 w-6" color="white" />
           </a>
         </button>
