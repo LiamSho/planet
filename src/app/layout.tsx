@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 
 import '@/styles/index.css'
 
+import { PublicEnvScript } from 'next-runtime-env'
+
 import { ErrorBoundary } from '@/components/boundary'
 import { DevAlert } from '@/components/dev'
 import { Providers } from '@/components/providers'
@@ -18,6 +20,9 @@ export const metadata: Metadata = cfg.meta
 const RootLayout: FCC = ({ children }) => {
   return (
     <html lang="zh" suppressHydrationWarning>
+      <head>
+        <PublicEnvScript />
+      </head>
       <body className={inter.className}>
         <ErrorBoundary>
           <Providers>

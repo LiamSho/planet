@@ -1,16 +1,14 @@
 'use client'
 
 import { FC } from 'react'
-import { usePathname } from 'next/navigation'
+import { env } from 'next-runtime-env'
 
 export const DevAlert: FC = () => {
-  const pathname = usePathname()
-
-  const display = !pathname.startsWith('/dev')
+  const isProduction = env('NEXT_PUBLIC_ENV')?.toLowerCase() === 'production'
 
   return (
     <>
-      {display && (
+      {isProduction && (
         <div
           role="alert"
           className="alert fixed left-0 right-0 top-0 z-50 mx-auto my-4 max-w-[80%] shadow-lg"
