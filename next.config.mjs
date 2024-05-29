@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
+  productionBrowserSourceMaps: false,
+
   images: {
     remotePatterns: [
       {
@@ -7,9 +10,11 @@ const nextConfig = {
         protocol: 'https',
       },
     ],
+    dangerouslyAllowSVG: true,
   },
   experimental: {
     reactCompiler: true,
+    webpackBuildWorker: true,
   },
 }
 

@@ -9,9 +9,11 @@ import cfg from '@/config'
 
 import { HeroLayout } from './components/HeroLayout'
 
-export default function Home() {
+const Home: FC = () => {
   return <Hero />
 }
+
+export default Home
 
 const Hero: FC = () => {
   const template = cfg.home.intro.heading

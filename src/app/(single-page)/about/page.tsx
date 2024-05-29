@@ -1,7 +1,9 @@
+import { FC } from 'react'
+
 import { DevMarkdown } from '@/components/dev'
 import { ContentContainer } from '@/components/layout/container'
 
-export default function DevMarkdownPage() {
+const AboutPage: FC = () => {
   return (
     <>
       <ContentContainer>
@@ -10,3 +12,5 @@ export default function DevMarkdownPage() {
     </>
   )
 }
+
+export default AboutPage

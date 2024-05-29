@@ -5,9 +5,12 @@ import { usePathname } from 'next/navigation'
 
 export const DevAlert: FC = () => {
   const pathname = usePathname()
+
+  const display = !pathname.startsWith('/dev')
+
   return (
     <>
-      {!pathname.startsWith('/dev') && (
+      {display && (
         <div
           role="alert"
           className="alert fixed left-0 right-0 top-0 z-50 mx-auto my-4 max-w-[80%] shadow-lg"

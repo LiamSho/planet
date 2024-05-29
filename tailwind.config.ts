@@ -9,7 +9,11 @@ const config = {
   ],
   prefix: '',
   theme: {},
-  plugins: [require('tailwindcss-animate'), require('daisyui')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+    require('daisyui'),
+  ],
   daisyui: {
     themes: ['light', 'dark'],
   },
