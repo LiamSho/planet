@@ -3,11 +3,14 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "**",
-        protocol: "https",
+        hostname: '**',
+        protocol: 'https',
       },
     ],
   },
-};
+  experimental: {
+    reactCompiler: true,
+  },
+}
 
-export default nextConfig;
+export default nextConfig
