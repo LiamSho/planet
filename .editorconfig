@@ -8,15 +8,19 @@ trim_trailing_whitespace = true
 # XML based
 [*.{xml,html,xhtml,svg}]
 indent_size = 2
+end_of_line = lf
 
 # JS/TS
 [*.{js,ts,cjs,mjs,jsx,tsx}]
 indent_size = 2
+end_of_line = lf
 
 # Styles
 [*.{css,scss,sass,less}]
 indent_size = 2
+end_of_line = lf
 
 # Configuration
 [*.{json,yaml,yml}]
 indent_size = 2
+end_of_line = lf
