@@ -37,7 +37,7 @@ const config = {
       social: [
         {
           hover: '@LiamSho',
-          url: 'https://github.com/LiamSho',
+          url: 'https://github.com/AlisaAkiron',
           icon: 'FaGithub',
           theme: '#181818',
         },
@@ -54,7 +54,7 @@ const config = {
           theme: '#D44638',
         },
         {
-          hover: 'Alisa Lab Codebin (Self-Hosted GitLab)',
+          hover: 'Alisa Lab Codebin',
           url: 'https://git.alisaqaq.moe',
           icon: 'FaGitlab',
           theme: '#FC6D26',
