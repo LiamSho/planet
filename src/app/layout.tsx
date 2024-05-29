@@ -5,7 +5,7 @@ import '@/styles/index.css'
 
 import { PublicEnvScript } from 'next-runtime-env'
 
-import { ErrorBoundary } from '@/components/boundary'
+import { ErrorBoundary } from '@/components/common/boundary'
 import { DevAlert } from '@/components/dev'
 import { Providers } from '@/components/providers'
 import cfg from '@/config'
