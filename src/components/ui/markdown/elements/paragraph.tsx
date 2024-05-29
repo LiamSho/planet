@@ -5,7 +5,7 @@ export const MdxParagraph: FC<
 > = (props) => {
   return (
     <>
-      <p {...props} className="text-lg text-gray-700">
+      <p {...props} className="text-md text-base-content">
         {props.children}
       </p>
     </>

@@ -1,3 +1,4 @@
+import { ArticleContainer } from '@/components/ui/containers'
 import { Markdown } from '@/components/ui/markdown'
 
 export default function DevMarkdown() {
@@ -58,7 +59,9 @@ Horizontal Rule
 
   return (
     <>
-      <Markdown mdxText={mdxText} />
+      <ArticleContainer>
+        <Markdown mdxText={mdxText} />
+      </ArticleContainer>
     </>
   )
 }
