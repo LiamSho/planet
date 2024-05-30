@@ -1,7 +1,6 @@
 'use client'
 
 import { FC } from 'react'
-import { redirect } from 'next/navigation'
 
 import { HeroContainer, HeroContent } from '../layout/container'
 import { Button } from '../ui/button'

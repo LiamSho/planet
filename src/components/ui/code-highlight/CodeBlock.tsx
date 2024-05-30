@@ -31,8 +31,8 @@ const CodeWrapper: FC = () => {
   }, [codeRef, shikiContext])
 
   return (
-    <div className="">
-      <div className=" z-10 flex h-[30px] w-full items-center justify-between rounded-t-xl bg-slate-200 px-5 py-1 text-sm">
+    <div>
+      <div className="z-10 flex h-[30px] w-full items-center justify-between rounded-t-xl bg-neutral/50 px-5 py-1 text-sm ">
         <span className="shrink-0 grow truncate"></span>
         <span className="pointer-events-none shrink-0 grow-0" aria-hidden>
           <ConditionalRender
@@ -43,7 +43,7 @@ const CodeWrapper: FC = () => {
           </ConditionalRender>
         </span>
       </div>
-      <div className="not-prose">
+      <div className="not-prose rounded-bl-md rounded-br-md">
         <ConditionalRender
           status={shikiContext.html !== ''}
           fallback={
@@ -55,7 +55,7 @@ const CodeWrapper: FC = () => {
           }
         >
           <div
-            className="prose prose-sm mx-2 max-h-[50vh] max-w-full overflow-x-hidden overflow-y-hidden"
+            className="prose prose-sm max-h-[50vh] max-w-full overflow-x-hidden overflow-y-hidden"
             ref={setCodeRef}
             dangerouslySetInnerHTML={{
               __html: shikiContext.html,

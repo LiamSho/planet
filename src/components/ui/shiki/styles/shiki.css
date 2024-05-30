@@ -1,2 +1,22 @@
-@import './shiki.theme.css';
-@import './shiki.highlight.css';
+.shiki,
+.highlighted {
+  @apply bg-accent/20;
+  @apply w-full;
+  @apply inline-block;
+}
+
+.highlighted.error {
+  @apply bg-error/20;
+}
+
+.highlighted.warning {
+  @apply bg-warning/20;
+}
+
+.line {
+  @apply px-4;
+}
+
+.shiki {
+  @apply py-4;
+}

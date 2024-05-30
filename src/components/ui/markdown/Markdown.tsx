@@ -64,5 +64,9 @@ export const Markdown: FC<{ value: string }> = ({ value }) => {
 }
 
 const MarkdownWrapper: FCC = ({ children }) => {
-  return <article className="prose max-w-[1800px]">{children}</article>
+  return (
+    <>
+      <article className="prose max-w-[1800px]">{children}</article>
+    </>
+  )
 }

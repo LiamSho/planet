@@ -12,6 +12,7 @@ import {
 
 import './styles/shiki.css'
 
+import { useTheme } from 'next-themes'
 import { getHighlighterCore, HighlighterCore } from 'shiki'
 import getWasm from 'shiki/wasm'
 
@@ -50,14 +51,13 @@ export const ShikiWrapper: FCC<{
     getShiki()
   }, [lang])
 
+  const { resolvedTheme } = useTheme()
+
   useEffect(() => {
     setContext({
       html:
         shiki?.codeToHtml(code, {
-          themes: {
-            dark: 'github-dark',
-            light: 'github-light',
-          },
+          theme: resolvedTheme === 'dark' ? githubDark : githubLight,
           lang: lang,
           transformers: [
             transformerMetaHighlight(),
@@ -67,7 +67,7 @@ export const ShikiWrapper: FCC<{
         }) || '',
       language: lang,
     })
-  }, [code, lang, shiki])
+  }, [code, shiki, resolvedTheme, lang])
 
   return (
     <ShikiContext.Provider value={context}>{children}</ShikiContext.Provider>
