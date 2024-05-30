@@ -1,8 +1,8 @@
 'use client'
 
-import { FC, Suspense } from 'react'
+import { FC } from 'react'
 
-import { CodeBlock } from '@/components/common/block'
+import { CodeBlock } from '@/components/ui/code-highlight'
 import { FCC } from '@/types'
 import { compiler, MarkdownToJSX } from '@innei/markdown-to-jsx'
 
@@ -30,9 +30,11 @@ export const Markdown: FC<{ value: string }> = ({ value }) => {
     codeBlock: {
       react(node, _output, state) {
         return (
-          <Suspense key={state?.key} fallback={<h1>Loading</h1>}>
-            <CodeBlock code={node.content} language={node.lang} />
-          </Suspense>
+          <CodeBlock
+            key={state?.key}
+            code={node.content}
+            language={node.lang}
+          />
         )
       },
     },
@@ -58,9 +60,9 @@ export const Markdown: FC<{ value: string }> = ({ value }) => {
 
   const MD = compiler(value, options)
 
-  return <Suspense>{MD}</Suspense>
+  return <>{MD}</>
 }
 
 const MarkdownWrapper: FCC = ({ children }) => {
-  return <article className="prose">{children}</article>
+  return <article className="prose max-w-[1800px]">{children}</article>
 }

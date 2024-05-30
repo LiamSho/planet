@@ -1,4 +1,6 @@
-import { FC, useEffect, useState } from 'react'
+'use client'
+
+import { createContext, useEffect, useState } from 'react'
 import githubDark from 'shiki/themes/github-dark.mjs'
 import githubLight from 'shiki/themes/github-light.mjs'
 
@@ -13,12 +15,23 @@ import './styles/shiki.css'
 import { getHighlighterCore, HighlighterCore } from 'shiki'
 import getWasm from 'shiki/wasm'
 
-export const ShikiWrapper: FC<{
+import { FCC } from '@/types'
+
+export const ShikiContext = createContext<{ html: string; language: string }>({
+  html: '',
+  language: '',
+})
+
+export const ShikiWrapper: FCC<{
   code: string
   language?: string
-}> = ({ code, language }) => {
+}> = ({ code, language, children }) => {
   const lang = language?.toLocaleLowerCase() || ''
   const [shiki, setShiki] = useState<HighlighterCore | undefined>()
+  const [context, setContext] = useState<{ html: string; language: string }>({
+    html: '',
+    language: '',
+  })
 
   useEffect(() => {
     const getShiki = async () => {
@@ -37,25 +50,26 @@ export const ShikiWrapper: FC<{
     getShiki()
   }, [lang])
 
-  const html =
-    shiki?.codeToHtml(code, {
-      themes: {
-        dark: 'github-dark',
-        light: 'github-light',
-      },
-      lang: lang,
-      transformers: [
-        transformerMetaHighlight(),
-        transformerNotationHighlight(),
-        transformerNotationErrorLevel(),
-      ],
-    }) || ''
+  useEffect(() => {
+    setContext({
+      html:
+        shiki?.codeToHtml(code, {
+          themes: {
+            dark: 'github-dark',
+            light: 'github-light',
+          },
+          lang: lang,
+          transformers: [
+            transformerMetaHighlight(),
+            transformerNotationHighlight(),
+            transformerNotationErrorLevel(),
+          ],
+        }) || '',
+      language: lang,
+    })
+  }, [code, lang, shiki])
 
   return (
-    <div
-      dangerouslySetInnerHTML={{
-        __html: html,
-      }}
-    />
+    <ShikiContext.Provider value={context}>{children}</ShikiContext.Provider>
   )
 }
