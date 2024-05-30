@@ -1,11 +1,10 @@
 'use client'
 
 import { FC } from 'react'
-import { env } from 'next-runtime-env'
+
+import { isProduction } from '@/lib/env'
 
 export const DevAlert: FC = () => {
-  const isProduction = env('NEXT_PUBLIC_ENV')?.toLowerCase() === 'production'
-
   return (
     <>
       {isProduction && (

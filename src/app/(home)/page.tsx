@@ -3,6 +3,7 @@
 import { FC } from 'react'
 import Image from 'next/image'
 
+import { HeroContainer } from '@/components/layout/container'
 import { SocialLink } from '@/components/ui/button'
 import { PopupTransition, TextPrinter } from '@/components/ui/transitions'
 import cfg from '@/config'
@@ -30,7 +31,7 @@ const Hero: FC = () => {
     }, 0) * 0.05
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <HeroContainer>
       <HeroLayout leftClassName="mt-12 h-[15rem] lg:h-1/2">
         <>
           <div className="relative text-center leading-[4] lg:text-left [&_*]:inline-block">
@@ -68,6 +69,6 @@ const Hero: FC = () => {
           />
         </div>
       </HeroLayout>
-    </div>
+    </HeroContainer>
   )
 }

@@ -11,24 +11,34 @@ export const Button: FC<
 > = ({ className, ...props }) => {
   const presets = {
     variant: {
-      primary: 'bg-primary text-white',
-      ghost: 'bg-transparent text-primary',
-      outline: '',
       default: '',
+      primary: 'btn-primary text-white',
+      ghost: 'btn-ghost text-primary',
+      outline: 'btn-outline',
     },
     size: {
+      default: '',
       icon: 'p-1',
-      sm: 'px-2 py-1',
-      md: 'px-3 py-2',
-      lg: 'px-4 py-3',
+      sm: 'btn-sm',
+      md: 'btn-md',
+      lg: 'btn-lg',
     },
   }
 
-  const variant = props.variant || 'primary'
+  const variant = props.variant || 'default'
+  const size = props.size || 'default'
 
   return (
     <>
-      <button className={cn(presets.variant[variant], className)} {...props}>
+      <button
+        className={cn(
+          'btn',
+          presets.variant[variant],
+          presets.size[size],
+          className,
+        )}
+        {...props}
+      >
         {props.children}
       </button>
     </>

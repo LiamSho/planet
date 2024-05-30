@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react'
 
+import { HeroContent } from '@/components/layout/container'
 import { cn } from '@/lib/utils'
 
 export const HeroLayout: FC<{
@@ -9,12 +10,7 @@ export const HeroLayout: FC<{
   rightClassName?: string
 }> = ({ children, className, leftClassName, rightClassName }) => {
   return (
-    <div
-      className={cn(
-        'hero-content relative mx-auto size-full min-w-0 flex-col-reverse lg:flex-row',
-        className,
-      )}
-    >
+    <HeroContent className={cn('flex-col-reverse lg:flex-row', className)}>
       {children.slice(0, 2).map((child, i) => {
         return (
           <div
@@ -28,6 +24,6 @@ export const HeroLayout: FC<{
           </div>
         )
       })}
-    </div>
+    </HeroContent>
   )
 }
