@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { ShikiWrapper } from '@/components/ui/shiki/ShikiWrapper'
+import { ShikiWrapper } from '@/components/ui/shiki'
 
 type CodeBlockProps = {
   code: string

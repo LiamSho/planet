@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, use, useMemo } from 'react'
+import { FC, use } from 'react'
 
 import {
   transformerMetaHighlight,
