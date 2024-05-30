@@ -8,6 +8,7 @@ const config = {
     './src/**/*.{ts,tsx}',
   ],
   prefix: '',
+  darkMode: ['selector', '[data-mode="dark"]'],
   theme: {},
   plugins: [
     require('tailwindcss-animate'),

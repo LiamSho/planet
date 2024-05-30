@@ -66,18 +66,18 @@ Log the message to the console using JavaScript:
 \`\`\`javascript
 // Code Block
 console.log('Hello, world!');
-console.log('Hello, world!');
+console.log('Hello, world!'); // [!code error]
 console.log('Hello, world!'); // [!code error]
 console.log('Hello, world!'); // [!code highlight]
 console.log('Hello, world!');
-console.log('Hello, world!');
+console.log('Hello, world!'); // [!code warning]
 \`\`\`
 
 ## Links
 
 C# Code
 
-\`\`\`
+\`\`\` csharp
 using CoordinateSharp;
 
 namespace Some.Project.Name.Extensions;

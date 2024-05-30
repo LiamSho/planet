@@ -1,6 +1,6 @@
-'use client'
-
-import { FC, use } from 'react'
+import { FC, useEffect, useState } from 'react'
+import githubDark from 'shiki/themes/github-dark.mjs'
+import githubLight from 'shiki/themes/github-light.mjs'
 
 import {
   transformerMetaHighlight,
@@ -8,47 +8,48 @@ import {
   transformerNotationHighlight,
 } from '@shikijs/transformers'
 
-import { getShiki } from './utils'
+import './styles/shiki.css'
+
+import { getHighlighterCore, HighlighterCore } from 'shiki'
+import getWasm from 'shiki/wasm'
 
 export const ShikiWrapper: FC<{
   code: string
   language?: string
 }> = ({ code, language }) => {
-  const shiki = use(getShiki)
-  const lang = language ? language.toLowerCase() : ''
+  const lang = language?.toLocaleLowerCase() || ''
+  const [shiki, setShiki] = useState<HighlighterCore | undefined>()
 
-  use(
-    (async () => {
-      const loadShikiLanguage = async (
-        language: string,
-        languageModule: any,
-      ) => {
-        if (!shiki.getLoadedLanguages().includes(language)) {
-          await shiki.loadLanguage(await languageModule())
-        }
-      }
+  useEffect(() => {
+    const getShiki = async () => {
       const { bundledLanguages } = await import('shiki/langs')
+      const shikiLang = (bundledLanguages as any)[lang]
 
-      const importFn = (bundledLanguages as any)[lang]
-      if (!importFn) {
-        return
-      }
-      return loadShikiLanguage(lang, importFn)
-    })(),
-  )
+      const highlighterCore = await getHighlighterCore({
+        loadWasm: getWasm,
+        themes: [githubDark, githubLight],
+        langs: [shikiLang],
+      })
 
-  const html = shiki.codeToHtml(code, {
-    lang: lang,
-    themes: {
-      dark: 'github-dark',
-      light: 'github-light',
-    },
-    transformers: [
-      transformerMetaHighlight(),
-      transformerNotationHighlight(),
-      transformerNotationErrorLevel(),
-    ],
-  })
+      setShiki(highlighterCore)
+    }
+
+    getShiki()
+  }, [lang])
+
+  const html =
+    shiki?.codeToHtml(code, {
+      themes: {
+        dark: 'github-dark',
+        light: 'github-light',
+      },
+      lang: lang,
+      transformers: [
+        transformerMetaHighlight(),
+        transformerNotationHighlight(),
+        transformerNotationErrorLevel(),
+      ],
+    }) || ''
 
   return (
     <div

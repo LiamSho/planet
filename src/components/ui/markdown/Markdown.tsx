@@ -2,9 +2,9 @@
 
 import { FC, Suspense } from 'react'
 
-import { CodeBlock } from '@/components/common/block/CodeBlock'
+import { CodeBlock } from '@/components/common/block'
 import { FCC } from '@/types'
-import MJSX, { compiler, MarkdownToJSX } from '@innei/markdown-to-jsx'
+import { compiler, MarkdownToJSX } from '@innei/markdown-to-jsx'
 
 import { MdxImage, MdxParagraph } from './elements'
 
@@ -30,11 +30,9 @@ export const Markdown: FC<{ value: string }> = ({ value }) => {
     codeBlock: {
       react(node, _output, state) {
         return (
-          <CodeBlock
-            key={state?.key}
-            code={node.content}
-            language={node.lang}
-          />
+          <Suspense key={state?.key} fallback={<h1>Loading</h1>}>
+            <CodeBlock code={node.content} language={node.lang} />
+          </Suspense>
         )
       },
     },

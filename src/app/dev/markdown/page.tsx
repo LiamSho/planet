@@ -1,3 +1,5 @@
+'use client'
+
 import { DevMarkdown } from '@/components/dev'
 import { ContentContainer } from '@/components/layout/container'
 

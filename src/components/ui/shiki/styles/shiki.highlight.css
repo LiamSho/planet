@@ -1,0 +1,14 @@
+.shiki,
+.highlighted {
+  @apply bg-accent/20;
+  @apply w-full;
+  @apply inline-block;
+}
+
+.highlighted.error {
+  @apply bg-error/20;
+}
+
+.highlighted.warning {
+  @apply bg-warning/20;
+}
