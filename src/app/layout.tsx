@@ -13,8 +13,6 @@ import { FCC } from '@/types'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const runtime = 'edge'
-
 export const metadata: Metadata = cfg.meta
 
 const RootLayout: FCC = ({ children }) => {
