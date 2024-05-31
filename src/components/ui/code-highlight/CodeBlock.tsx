@@ -1,6 +1,7 @@
 'use client'
 
 import { FC, useContext, useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { ComponentLoading } from '@/components/layout/loading'
 import { ConditionalRender } from '@/components/shared/conditional'
@@ -25,6 +26,7 @@ const CodeWrapper: FC = () => {
   const [codeRef, setCodeRef] = useState<HTMLDivElement | null>(null)
   const [requireExtend, setRequireExtend] = useState(true)
   const [extended, setExtended] = useState(false)
+  const [extendedHeight, setExtendedHeight] = useState(0)
 
   useEffect(() => {
     if (!codeRef) {
@@ -33,8 +35,10 @@ const CodeWrapper: FC = () => {
 
     if (codeRef.scrollHeight > codeRef.clientHeight) {
       setRequireExtend(true)
+      setExtendedHeight(codeRef.scrollHeight - codeRef.clientHeight)
     } else {
       setRequireExtend(false)
+      setExtended(true)
     }
   }, [codeRef, shikiContext, requireExtend])
 
@@ -58,31 +62,44 @@ const CodeWrapper: FC = () => {
             <ComponentLoading
               type="dots"
               size="lg"
-              className="min-h-[50vh] max-w-full"
+              className="min-h-16 max-w-full"
             />
           }
         >
-          <div
-            className={cn(
-              'prose prose-sm max-w-full overflow-y-hidden',
-              requireExtend ? (extended ? '' : 'max-h-[50vh]') : 'max-h-[50vh]',
-              requireExtend
-                ? extended
-                  ? 'overflow-x-auto'
-                  : 'overflow-x-hidden'
-                : 'overflow-x-auto',
-            )}
-            ref={setCodeRef}
-            dangerouslySetInnerHTML={{
-              __html: shikiContext.html,
-            }}
-          />
+          <AnimatePresence>
+            <motion.div
+              className={cn(
+                'prose prose-sm max-w-full touch-auto overflow-auto',
+                extended ? '' : 'max-h-[50vh]',
+              )}
+              ref={setCodeRef}
+              dangerouslySetInnerHTML={{
+                __html: shikiContext.html,
+              }}
+              transition={{
+                duration: 1,
+                ease: 'easeInOut',
+              }}
+              initial={{ maxHeight: '50vh' }}
+              animate={{
+                maxHeight: extended
+                  ? codeRef
+                    ? `${codeRef.scrollHeight}px`
+                    : `100vh`
+                  : '50vh',
+              }}
+            />
+          </AnimatePresence>
           <ConditionalRender status={requireExtend}>
             <div
-              className="flex justify-center p-2 text-neutral-500"
-              onClick={() => setExtended(!extended)}
+              className={cn(
+                'btn btn-ghost flex justify-center p-2 text-neutral-500',
+              )}
+              onClick={() => {
+                setExtended(!extended)
+              }}
             >
-              {extended ? 'Collapse' : 'Expand'}
+              {extended ? '收起' : '展开'}
             </div>
           </ConditionalRender>
         </ConditionalRender>
