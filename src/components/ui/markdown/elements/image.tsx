@@ -1,5 +1,6 @@
 import { DetailedHTMLProps, FC, ImgHTMLAttributes } from 'react'
-import Image from 'next/image'
+
+import { Image } from '@/components/ui/image'
 
 export const MdxImage: FC<
   DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>

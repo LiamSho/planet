@@ -1,10 +1,10 @@
 'use client'
 
 import { FC } from 'react'
-import Image from 'next/image'
 
 import { HeroContainer } from '@/components/layout/container'
-import { SocialLink } from '@/components/ui/button'
+import { Image } from '@/components/ui/image'
+import { SocialLink } from '@/components/ui/link'
 import { PopupTransition, TextPrinter } from '@/components/ui/transitions'
 import cfg from '@/config'
 
