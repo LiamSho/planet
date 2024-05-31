@@ -5,6 +5,7 @@ import { FC, useContext, useEffect, useState } from 'react'
 import { ComponentLoading } from '@/components/layout/loading'
 import { ConditionalRender } from '@/components/shared/conditional'
 import { ShikiContext, ShikiWrapper } from '@/components/ui/shiki'
+import { cn } from '@/lib/utils'
 
 type CodeBlockProps = {
   code: string
@@ -22,13 +23,20 @@ export const CodeBlock: FC<CodeBlockProps> = ({ code, language }) => {
 const CodeWrapper: FC = () => {
   const shikiContext = useContext(ShikiContext)
   const [codeRef, setCodeRef] = useState<HTMLDivElement | null>(null)
+  const [requireExtend, setRequireExtend] = useState(true)
+  const [extended, setExtended] = useState(false)
 
   useEffect(() => {
     if (!codeRef) {
       return
     }
-    console.log(codeRef.clientHeight, codeRef.scrollHeight)
-  }, [codeRef, shikiContext])
+
+    if (codeRef.scrollHeight > codeRef.clientHeight) {
+      setRequireExtend(true)
+    } else {
+      setRequireExtend(false)
+    }
+  }, [codeRef, shikiContext, requireExtend])
 
   return (
     <div>
@@ -55,12 +63,28 @@ const CodeWrapper: FC = () => {
           }
         >
           <div
-            className="prose prose-sm max-h-[50vh] max-w-full overflow-x-hidden overflow-y-hidden"
+            className={cn(
+              'prose prose-sm max-w-full overflow-y-hidden',
+              requireExtend ? (extended ? '' : 'max-h-[50vh]') : 'max-h-[50vh]',
+              requireExtend
+                ? extended
+                  ? 'overflow-x-auto'
+                  : 'overflow-x-hidden'
+                : 'overflow-x-auto',
+            )}
             ref={setCodeRef}
             dangerouslySetInnerHTML={{
               __html: shikiContext.html,
             }}
           />
+          <ConditionalRender status={requireExtend}>
+            <div
+              className="flex justify-center p-2 text-neutral-500"
+              onClick={() => setExtended(!extended)}
+            >
+              {extended ? 'Collapse' : 'Expand'}
+            </div>
+          </ConditionalRender>
         </ConditionalRender>
       </div>
     </div>
