@@ -8,6 +8,7 @@ import { PublicEnvScript } from 'next-runtime-env'
 import { ErrorBoundary } from '@/components/common'
 import { DevAlert } from '@/components/dev'
 import { Providers } from '@/components/providers'
+import { Footer } from '@/components/shared/footer'
 import cfg from '@/config'
 import { FCC } from '@/types'
 
@@ -27,6 +28,7 @@ const RootLayout: FCC = ({ children }) => {
             <div className="relative h-full max-h-screen overflow-auto font-sans">
               <DevAlert />
               {children}
+              <Footer />
             </div>
           </Providers>
         </ErrorBoundary>

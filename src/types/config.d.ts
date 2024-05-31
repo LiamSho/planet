@@ -15,6 +15,11 @@ export type SocialMedia = {
   linkLabel?: string
 }
 
+export type URL = {
+  name: string
+  url: string
+}
+
 export type PlanetConfig = {
   meta: Metadata
   home: {
@@ -24,5 +29,12 @@ export type PlanetConfig = {
       social: SocialMedia[]
     }
     avatar: string
+  }
+  footer: {
+    copyright: {
+      startYear: number
+      holder: URL
+    }
+    icp?: URL
   }
 }

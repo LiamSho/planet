@@ -7,7 +7,7 @@ export const HeroContainer: HTML<'div'> = ({
   ...props
 }) => {
   return (
-    <div className={cn('hero min-h-screen bg-base-200', className)} {...props}>
+    <div className={cn('hero min-h-screen', className)} {...props}>
       {children}
     </div>
   )

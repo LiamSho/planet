@@ -35,7 +35,7 @@ export const ThemeSwitch = () => {
   }
 
   return (
-    <div className="join rounded-full border-2 border-base-300">
+    <div className="join rounded-full border border-base-300">
       {themeButtons.map((item, index) => {
         return (
           <button

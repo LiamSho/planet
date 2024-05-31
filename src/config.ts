@@ -5,7 +5,7 @@ const config: PlanetConfig = {
   meta: {
     metadataBase: new URL('https://alisaqaq.moe'),
     title: '迷いの森',
-    description: 'Alisa',
+    description: 'Slient Space',
     keywords: ['Alisa', 'blog'],
     robots: {
       index: isProduction,
@@ -75,6 +75,19 @@ const config: PlanetConfig = {
       ],
     },
     avatar: 'https://planet.alisaqaq.moe/avatar.webp',
+  },
+  footer: {
+    copyright: {
+      startYear: 2024,
+      holder: {
+        name: 'Alisa',
+        url: '/',
+      },
+    },
+    icp: {
+      name: '萌 ICP 备 20241270 号',
+      url: 'https://icp.gov.moe/?keyword=20241270',
+    },
   },
 }
 
