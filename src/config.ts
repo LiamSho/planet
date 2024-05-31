@@ -77,17 +77,21 @@ const config: PlanetConfig = {
     avatar: 'https://planet.alisaqaq.moe/avatar.webp',
   },
   footer: {
+    moeTravel: true,
     copyright: {
       startYear: 2024,
       holder: {
         name: 'Alisa',
         url: '/',
+        newTab: false,
       },
     },
     icp: {
       name: '萌 ICP 备 20241270 号',
       url: 'https://icp.gov.moe/?keyword=20241270',
+      newTab: true,
     },
+    links: [],
   },
 }
 

@@ -18,6 +18,7 @@ export type SocialMedia = {
 export type URL = {
   name: string
   url: string
+  newTab: boolean
 }
 
 export type PlanetConfig = {
@@ -31,10 +32,12 @@ export type PlanetConfig = {
     avatar: string
   }
   footer: {
+    moeTravel: boolean
     copyright: {
       startYear: number
       holder: URL
     }
     icp?: URL
+    links: URL[]
   }
 }

@@ -13,7 +13,7 @@ export const Footer: FC = () => {
     currentYear === f.copyright.startYear
       ? `${f.copyright.startYear}`
       : `${f.copyright.startYear}-${currentYear}`
-  const copyrightHrefExternalSite = f.copyright.holder.url.startsWith('http')
+  const getTarget = (newTab: boolean) => (newTab ? '_blank' : '_self')
 
   return (
     <footer className="relative z-[1] mt-16 border-t border-gray-300 py-8 text-sm text-base-content/80 dark:border-gray-600">
@@ -25,7 +25,7 @@ export const Footer: FC = () => {
               <a
                 className="link-hover link"
                 href={f.copyright.holder.url}
-                target={copyrightHrefExternalSite ? '_blank' : '_self'}
+                target={getTarget(f.copyright.holder.newTab)}
               >
                 {f.copyright.holder.name}
               </a>
@@ -59,9 +59,25 @@ export const Footer: FC = () => {
                     <a
                       className="link-hover link"
                       href={f.icp.url}
-                      target="_blank"
+                      target={getTarget(f.icp.newTab)}
                     >
                       {f.icp.name}
+                    </a>
+                  </span>
+                </>
+              ) : (
+                <></>
+              )}
+              {f.moeTravel ? (
+                <>
+                  <span className="text-base-content/50"> | </span>
+                  <span>
+                    <a
+                      className="link-hover link"
+                      href="https://travel.moe/go.html?travel=on"
+                      target="_blank"
+                    >
+                      异次元之旅
                     </a>
                   </span>
                 </>
