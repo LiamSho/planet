@@ -64,6 +64,7 @@ const Hero: FC = () => {
             src={cfg.images.avatar.src}
             alt={cfg.images.avatar.alt}
             className="aspect-square w-full rounded-full border border-slate-200 dark:border-neutral-800"
+            loading="eager"
           />
         </div>
       </HeroLayout>

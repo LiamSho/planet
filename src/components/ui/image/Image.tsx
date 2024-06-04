@@ -1,40 +1,48 @@
 'use client'
 
-import { FC, useEffect, useState } from 'react'
-import { motion, useAnimation } from 'framer-motion'
+import { FC, useEffect, useRef, useState } from 'react'
+
+import { cn } from '@/lib/utils'
 
 type ImageProps = {
   src: string
   alt: string
+  loading?: 'lazy' | 'eager'
   className?: string
+  loadingclassName?: string
 }
 
 export const Image: FC<ImageProps> = (props) => {
-  const [loaded, setLoaded] = useState(false)
-  const [imageSrc, setImageSrc] = useState<string | undefined>(undefined)
-
-  const controls = useAnimation()
+  const [isLoading, setLoading] = useState(true)
+  const ref = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
-    if (loaded) {
-      controls.start({ opacity: 1 })
-    } else {
-      setImageSrc(props.src)
+    if (ref.current === null) {
+      return
     }
-  }, [loaded, controls, props.src])
+
+    ref.current.onload = () => {
+      setLoading(false)
+    }
+
+    ref.current.src = props.src
+  }, [props.src])
 
   return (
-    <>
-      <motion.img
-        alt={props.alt}
-        src={imageSrc}
-        className={props.className}
-        onLoad={() => setLoaded(true)}
-        onError={() => setLoaded(true)}
-        initial={{ opacity: 0 }}
-        animate={controls}
-        transition={{ duration: 0.5 }}
-      />
-    </>
+    <img
+      ref={ref}
+      alt={props.alt}
+      loading={props.loading || 'lazy'}
+      className={cn(
+        props.className,
+        'duration-500 ease-in',
+        isLoading
+          ? cn(
+              'scale-105 bg-gray-400 blur-2xl grayscale',
+              props.loadingclassName,
+            )
+          : 'scale-100 blur-0 grayscale-0',
+      )}
+    />
   )
 }

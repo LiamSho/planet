@@ -9,7 +9,12 @@ export const MdxImage: FC<
 
   return (
     <div className="flex items-center justify-center">
-      <Image src={props.src as string} alt={alt} className="max-h-[75vh]" />
+      <Image
+        src={props.src as string}
+        alt={alt}
+        className="max-h-[75vh]"
+        loadingclassName="min-h-[50vh] w-full"
+      />
     </div>
   )
 }
