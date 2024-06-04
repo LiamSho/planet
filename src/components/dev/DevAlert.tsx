@@ -1,13 +1,15 @@
 'use client'
 
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 import { isProduction } from '@/lib/env'
 
 export const DevAlert: FC = () => {
+  const [isShow, setIsShow] = useState(true)
+
   return (
     <>
-      {isProduction && (
+      {isProduction && isShow && (
         <div
           role="alert"
           className="alert fixed left-0 right-0 top-0 z-50 mx-auto my-4 max-w-[80%] shadow-lg"
@@ -28,6 +30,11 @@ export const DevAlert: FC = () => {
           <div>
             <h3 className="font-bold">ATTENTION</h3>
             <div className="text-xs">本站正在开发中</div>
+          </div>
+          <div className="space-x-2">
+            <button className="btn btn-sm" onClick={() => setIsShow(false)}>
+              关闭
+            </button>
           </div>
         </div>
       )}
