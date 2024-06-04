@@ -1,10 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { LuMoon, LuSun } from 'react-icons/lu'
 import { MdComputer } from 'react-icons/md'
 import { useTheme } from 'next-themes'
 
+import { transitionViewIfSupported } from '@/lib/dom'
 import { cn } from '@/lib/utils'
 
 const themeButtons = [
@@ -34,6 +36,12 @@ export const ThemeSwitch = () => {
     return null
   }
 
+  const handleClick = (theme: string) => {
+    transitionViewIfSupported(() => {
+      flushSync(() => setTheme(theme))
+    })
+  }
+
   return (
     <div className="join rounded-full border border-base-300">
       {themeButtons.map((item, index) => {
@@ -44,7 +52,7 @@ export const ThemeSwitch = () => {
               'btn join-item btn-sm',
               theme === item.name ? '' : 'btn-ghost',
             )}
-            onClick={() => setTheme(item.name)}
+            onClick={() => handleClick(item.name)}
           >
             {item.icon}
           </button>
