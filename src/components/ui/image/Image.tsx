@@ -35,13 +35,10 @@ export const Image: FC<ImageProps> = (props) => {
       loading={props.loading || 'lazy'}
       className={cn(
         props.className,
-        'duration-500 ease-in',
+        'duration-700 ease-in',
         isLoading
-          ? cn(
-              'scale-105 bg-gray-400 blur-2xl grayscale',
-              props.loadingclassName,
-            )
-          : 'scale-100 blur-0 grayscale-0',
+          ? cn(' bg-gray-400 blur grayscale', props.loadingclassName)
+          : 'blur-0 grayscale-0',
       )}
     />
   )
