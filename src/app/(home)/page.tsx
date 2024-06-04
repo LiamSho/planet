@@ -61,10 +61,8 @@ const Hero: FC = () => {
 
         <div className="mt-24 size-[200px] lg:mt-0 lg:size-[300px]">
           <Image
-            src={cfg.home.avatar}
-            alt="avatar"
-            width={300}
-            height={300}
+            src={cfg.images.avatar.src}
+            alt={cfg.images.avatar.alt}
             className="aspect-square w-full rounded-full border border-slate-200 dark:border-neutral-800"
           />
         </div>

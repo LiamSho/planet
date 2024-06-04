@@ -16,6 +16,12 @@ const config: PlanetConfig = {
       },
     },
   },
+  images: {
+    avatar: {
+      src: 'https://planet.alisaqaq.moe/avatar.webp',
+      alt: "Alisa's avatar",
+    },
+  },
   home: {
     intro: {
       heading: [
@@ -74,7 +80,6 @@ const config: PlanetConfig = {
         },
       ],
     },
-    avatar: 'https://planet.alisaqaq.moe/avatar.webp',
   },
   footer: {
     moeTravel: true,

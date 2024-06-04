@@ -15,6 +15,15 @@ export type SocialMedia = {
   linkLabel?: string
 }
 
+export type Image = {
+  src: string
+  alt: string
+}
+
+export type Images = {
+  avatar: Image
+}
+
 export type URL = {
   name: string
   url: string
@@ -23,13 +32,13 @@ export type URL = {
 
 export type PlanetConfig = {
   meta: Metadata
+  images: Images
   home: {
     intro: {
       heading: ElementTemplate[]
       description: ElementTemplate[]
       social: SocialMedia[]
     }
-    avatar: string
   }
   footer: {
     moeTravel: boolean

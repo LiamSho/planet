@@ -8,8 +8,8 @@ export const MdxImage: FC<
   const alt = props.alt || ''
 
   return (
-    <>
-      <Image src={props.src as string} alt={alt} width={500} height={500} />
-    </>
+    <div className="flex items-center justify-center">
+      <Image src={props.src as string} alt={alt} className="max-h-[75vh]" />
+    </div>
   )
 }
