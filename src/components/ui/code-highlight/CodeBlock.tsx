@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useContext, useEffect, useState } from 'react'
+import { FC, useContext, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { ComponentLoading } from '@/components/layout/loading'
@@ -23,10 +23,10 @@ export const CodeBlock: FC<CodeBlockProps> = ({ code, language }) => {
 
 const CodeWrapper: FC = () => {
   const shikiContext = useContext(ShikiContext)
+  const [blockRef, setBlockRef] = useState<HTMLDivElement | null>(null)
   const [codeRef, setCodeRef] = useState<HTMLDivElement | null>(null)
   const [requireExtend, setRequireExtend] = useState(true)
   const [extended, setExtended] = useState(false)
-  const [extendedHeight, setExtendedHeight] = useState(0)
 
   useEffect(() => {
     if (!codeRef) {
@@ -35,15 +35,13 @@ const CodeWrapper: FC = () => {
 
     if (codeRef.scrollHeight > codeRef.clientHeight) {
       setRequireExtend(true)
-      setExtendedHeight(codeRef.scrollHeight - codeRef.clientHeight)
     } else {
       setRequireExtend(false)
-      setExtended(true)
     }
   }, [codeRef, shikiContext, requireExtend])
 
   return (
-    <div>
+    <div ref={setBlockRef}>
       <div className="z-10 flex h-[30px] w-full items-center justify-between rounded-t-xl bg-neutral/50 px-5 py-1 text-sm ">
         <span className="shrink-0 grow truncate"></span>
         <span className="pointer-events-none shrink-0 grow-0" aria-hidden>
@@ -70,7 +68,7 @@ const CodeWrapper: FC = () => {
             <motion.div
               className={cn(
                 'prose prose-sm max-w-full touch-auto overflow-auto',
-                extended ? '' : 'max-h-[50vh]',
+                extended ? 'min-h-[50vh]' : 'max-h-[50vh]',
               )}
               ref={setCodeRef}
               dangerouslySetInnerHTML={{
@@ -96,6 +94,13 @@ const CodeWrapper: FC = () => {
                 'btn btn-ghost flex justify-center p-2 text-neutral-500',
               )}
               onClick={() => {
+                if (extended) {
+                  blockRef?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                  })
+                }
+
                 setExtended(!extended)
               }}
             >
