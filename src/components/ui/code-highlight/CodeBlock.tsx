@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useContext, useEffect, useRef, useState } from 'react'
+import { FC, useContext, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { ComponentLoading } from '@/components/layout/loading'
@@ -42,7 +42,7 @@ const CodeWrapper: FC = () => {
 
   return (
     <div ref={setBlockRef}>
-      <div className="z-10 flex h-[30px] w-full items-center justify-between rounded-t-xl bg-neutral/50 px-5 py-1 text-sm ">
+      <div className="z-10 flex h-[30px] w-full items-center justify-between rounded-t-xl bg-neutral px-5 py-1 text-sm ">
         <span className="shrink-0 grow truncate"></span>
         <span className="pointer-events-none shrink-0 grow-0" aria-hidden>
           <ConditionalRender

@@ -1,7 +1,5 @@
 import type { Config } from 'tailwindcss'
 
-import { iOSSystemColors, rgbToHex } from './color'
-
 const config = {
   content: [
     './pages/**/*.{ts,tsx}',
@@ -22,42 +20,46 @@ const config = {
     themes: [
       {
         light: {
-          'color-scheme': 'light',
-
-          primary: '#33A6B8',
-          secondary: '#A8D8B9',
-          accent: '#33A6B8',
-
-          'accent-content': '#FAFAFA',
-
-          neutral: rgbToHex(iOSSystemColors.light.gray3),
-
-          'base-100': '#FFFFFF',
-          'base-content': '#000000',
-
-          info: rgbToHex(iOSSystemColors.light.blue),
-          success: rgbToHex(iOSSystemColors.light.green),
-          warning: rgbToHex(iOSSystemColors.light.orange),
-          error: rgbToHex(iOSSystemColors.light.red),
+          primary: '#FFC0CB', // Light Pink
+          secondary: '#FFD1DC', // Pastel Pink
+          accent: '#FFB6C1', // Blush Pink
+          neutral: '#F5F5F5', // Soft Gray
+          'base-100': '#FFFFFF', // White
+          info: '#B8E6D9', // Mint Green
+          success: '#B8E6D9', // Mint Green
+          warning: '#FFE5B4', // Peach
+          error: '#FFF8DC', // Light Gold
+          '--rounded-box': '1rem', // Default border radius
+          '--rounded-btn': '1rem', // Default button radius
+          '--rounded-badge': '1rem', // Default badge radius
+          '--animation-btn': '0.25s', // Button animation duration
+          '--animation-input': '0.2s', // Input animation duration
+          '--btn-text-case': 'none', // Default button text case
+          '--btn-focus-scale': '0.95', // Focus scale for buttons
+          '--border-btn': '1px', // Default button border width
         },
       },
       {
         dark: {
           'color-scheme': 'dark',
 
-          primary: '#F596AA',
-          secondary: '#FB966E',
-          accent: '#F596AA',
-
-          neutral: rgbToHex(iOSSystemColors.dark.gray3),
-
-          'base-100': '#1C1C1C',
-          'base-content': '#FFFFFF',
-
-          info: rgbToHex(iOSSystemColors.dark.blue),
-          success: rgbToHex(iOSSystemColors.dark.green),
-          warning: rgbToHex(iOSSystemColors.dark.orange),
-          error: rgbToHex(iOSSystemColors.dark.red),
+          primary: '#B03060', // Dark Pink
+          secondary: '#CC8899', // Soft Pink
+          accent: '#FF8C00', // Dark Orange
+          neutral: '#2C2C2C', // Medium Gray
+          'base-100': '#1F1F1F', // Dark Gray
+          info: '#B8E6D9', // Mint Green
+          success: '#B8E6D9', // Mint Green
+          warning: '#FF8C00', // Dark Orange
+          error: '#8B0000', // Dark Red
+          '--rounded-box': '1rem', // Default border radius
+          '--rounded-btn': '1rem', // Default button radius
+          '--rounded-badge': '1rem', // Default badge radius
+          '--animation-btn': '0.25s', // Button animation duration
+          '--animation-input': '0.2s', // Input animation duration
+          '--btn-text-case': 'none', // Default button text case
+          '--btn-focus-scale': '0.95', // Focus scale for buttons
+          '--border-btn': '1px', // Default button border width
         },
       },
     ],

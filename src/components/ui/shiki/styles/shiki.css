@@ -1,16 +1,15 @@
+/* Light Mode Styles */
 .shiki,
 .highlighted {
-  @apply bg-accent/20;
-  @apply w-full;
-  @apply inline-block;
+  @apply inline-block w-full bg-secondary/50;
 }
 
 .highlighted.error {
-  @apply bg-error/20;
+  @apply bg-red-400/50;
 }
 
 .highlighted.warning {
-  @apply bg-warning/20;
+  @apply bg-yellow-400/50;
 }
 
 .line {

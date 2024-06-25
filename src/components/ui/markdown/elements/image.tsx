@@ -12,7 +12,7 @@ export const MdxImage: FC<
       <Image
         src={props.src as string}
         alt={alt}
-        className="max-h-[75vh]"
+        className="max-h-[75vh] rounded-lg"
         loadingclassName="min-h-[50vh] w-full"
       />
     </div>
