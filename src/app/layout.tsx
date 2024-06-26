@@ -9,6 +9,7 @@ import { ErrorBoundary } from '@/components/common'
 import { DevAlert } from '@/components/dev'
 import { Providers } from '@/components/providers'
 import { Footer } from '@/components/shared/footer'
+import { Header } from '@/components/shared/header'
 import cfg from '@/config'
 import { FCC } from '@/types'
 
@@ -27,6 +28,7 @@ const RootLayout: FCC = ({ children }) => {
           <Providers>
             <div className="relative h-full max-h-screen overflow-auto font-sans">
               <DevAlert />
+              <Header />
               {children}
               <Footer />
             </div>

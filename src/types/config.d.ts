@@ -30,6 +30,13 @@ export type URL = {
   newTab: boolean
 }
 
+export type MenuItem = {
+  name: string
+  url?: string
+  newTab?: boolean
+  icon?: string
+}
+
 export type PlanetConfig = {
   meta: Metadata
   images: Images
@@ -40,6 +47,10 @@ export type PlanetConfig = {
       social: SocialMedia[]
     }
   }
+  menu: {
+    main: MenuItem
+    children?: MenuItem[]
+  }[]
   footer: {
     moeTravel: boolean
     copyright: {

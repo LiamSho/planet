@@ -55,7 +55,7 @@ const config: PlanetConfig = {
       ],
       social: [
         {
-          hover: '@LiamSho',
+          hover: '@AlisaAkiron',
           url: 'https://github.com/AlisaAkiron',
           icon: 'FaGithub',
           theme: '#181818',
@@ -81,6 +81,50 @@ const config: PlanetConfig = {
       ],
     },
   },
+  menu: [
+    {
+      main: {
+        name: '首页',
+        url: '/',
+        newTab: false,
+      },
+      children: [
+        {
+          name: '关于',
+          url: '/about',
+          newTab: false,
+        },
+      ],
+    },
+    {
+      main: {
+        name: '文稿',
+        url: '/articles',
+      },
+      children: [
+        {
+          name: '技术',
+        },
+        {
+          name: '折腾',
+        },
+        {
+          name: '云',
+        },
+      ],
+    },
+    {
+      main: {
+        name: '更多',
+      },
+      children: [
+        {
+          name: '跃迁',
+          url: 'https://travel.moe/go.html?travel=on',
+        },
+      ],
+    },
+  ],
   footer: {
     moeTravel: true,
     copyright: {
