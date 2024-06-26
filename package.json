@@ -15,6 +15,7 @@
     "lint:next": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.1.6",
     "@innei/markdown-to-jsx": "7.4.5-fork.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

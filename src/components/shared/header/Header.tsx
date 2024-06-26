@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import { UserIdentity } from '@/components/ui/identity'
+
 import { Menu } from './menu'
 
 export const Header: FC = () => {
@@ -8,13 +10,15 @@ export const Header: FC = () => {
       <nav className="navbar px-2 md:px-24 lg:px-48">
         <div className="navbar-start">
           <a className="btn btn-ghost text-xl" href="/">
-            PLACEHOLDER
+            <span>迷いの森</span>
           </a>
         </div>
         <div className="navbar-center">
           <Menu />
         </div>
-        <div className="navbar-end">PLACEHOLDER</div>
+        <div className="navbar-end">
+          <UserIdentity />
+        </div>
       </nav>
     </header>
   )
