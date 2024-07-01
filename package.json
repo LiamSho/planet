@@ -13,12 +13,12 @@
     "lint:next": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.1.6",
     "@innei/markdown-to-jsx": "7.4.5-fork.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.12",
     "next": "15.0.0-rc.0",
+    "next-auth": "^4.24.7",
     "next-runtime-env": "^3.2.2",
     "next-themes": "^0.3.0",
     "react": "19.0.0-rc-f994737d14-20240522",

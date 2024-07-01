@@ -37,6 +37,11 @@ export type MenuItem = {
   icon?: string
 }
 
+export type Identity = {
+  provider: string
+  config: object
+}
+
 export type PlanetConfig = {
   meta: Metadata
   images: Images
@@ -60,4 +65,5 @@ export type PlanetConfig = {
     icp?: URL
     links: URL[]
   }
+  identities: Identity[]
 }
